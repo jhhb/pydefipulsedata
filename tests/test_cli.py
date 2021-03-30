@@ -6,7 +6,7 @@ from expecter import expect
 
 from click.testing import CliRunner
 
-from pydefipulsedata.cli import main
+from defipulsedata.cli import main
 
 
 @pytest.fixture

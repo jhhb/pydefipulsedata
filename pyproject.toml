@@ -1,17 +1,17 @@
 [tool.poetry]
 
-name = "pydefipulsedata"
+name = "defipulsedata"
 version = "0.0"
-description = "Sample project generated from Jace's Python Template."
+description = "Unofficial SDK for DeFi Pulse Data"
 
 license = "MIT"
 
-authors = ["James Boyle <message-me-on-github@fake.com>"]
+authors = ["James Boyle <message-me-on-git>"]
 
 readme = "README.md"
 
-homepage = "https://pypi.org/project/pydefipulsedata"
-documentation = "https://pydefipulsedata.readthedocs.io"
+homepage = "https://pypi.org/project/defipulsedata"
+documentation = "https://defipulsedata.readthedocs.io"
 repository = "https://github.com/jhhb/pydefipulsedata"
 
 keywords = [
@@ -69,7 +69,7 @@ ipython = "^7.12.0"
 
 [tool.poetry.scripts]
 
-pydefipulsedata = "pydefipulsedata.cli:main"
+defipulsedata = "defipulsedata.cli:main"
 
 [tool.black]
 

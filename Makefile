@@ -1,4 +1,4 @@
-PACKAGE := pydefipulsedata
+PACKAGE := defipulsedata
 MODULES := $(wildcard $(PACKAGE)/*.py)
 
 # MAIN TASKS ##################################################################

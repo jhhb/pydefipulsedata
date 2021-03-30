@@ -1,1 +1,1 @@
-"""Integration tests for the package."""
+"""Unit tests for the package."""

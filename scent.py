@@ -12,7 +12,7 @@ else:
     notify = Notifier.notify
 
 
-watch_paths = ["pydefipulsedata", "tests"]
+watch_paths = ["defipulsedata", "tests"]
 
 
 class Options:
