@@ -2,11 +2,11 @@
 
 name = "pydefipulsedata"
 version = "0.0"
-description = "Unofficial sdk for defi pulse data"
+description = "Sample project generated from Jace's Python Template."
 
 license = "MIT"
 
-authors = ["James Boyle <donotreply>"]
+authors = ["James Boyle <message-me-on-github@fake.com>"]
 
 readme = "README.md"
 
@@ -69,7 +69,7 @@ ipython = "^7.12.0"
 
 [tool.poetry.scripts]
 
-PyDefiPulseData = "pydefipulsedata.cli:main"
+pydefipulsedata = "pydefipulsedata.cli:main"
 
 [tool.black]
 

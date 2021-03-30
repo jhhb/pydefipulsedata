@@ -1,9 +1,9 @@
-site_name: PyDefiPulseData
-site_description: Unofficial sdk for defi pulse data
+site_name: pydefipulsedata
+site_description: Sample project generated from Jace's Python Template.
 site_author: James Boyle
 
 repo_url: https://github.com/jhhb/pydefipulsedata
-edit_uri: https://github.com/jhhb/pydefipulsedata/edit/master/docs
+edit_uri: https://github.com/jhhb/pydefipulsedata/edit/main/docs
 
 theme: readthedocs
 

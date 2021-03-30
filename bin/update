@@ -12,13 +12,13 @@ CWD = os.getcwd()
 TMP = tempfile.gettempdir()
 CONFIG = {
     "full_name": "James Boyle",
-    "email": "donotreply",
+    "email": "message-me-on-github@fake.com",
     "github_username": "jhhb",
     "github_repo": "pydefipulsedata",
-    "default_branch": "master",
-    "project_name": "PyDefiPulseData",
+    "default_branch": "main",
+    "project_name": "pydefipulsedata",
     "package_name": "pydefipulsedata",
-    "project_short_description": "Unofficial sdk for defi pulse data",
+    "project_short_description": "Sample project generated from Jace's Python Template.",
     "python_major_version": 3,
     "python_minor_version": 7,
 }

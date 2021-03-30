@@ -1,6 +1,6 @@
 # Overview
 
-Unofficial sdk for defi pulse data
+Sample project generated from Jace's Python Template.
 
 This project was generated with [cookiecutter](https://github.com/audreyr/cookiecutter) using [jacebrowning/template-python](https://github.com/jacebrowning/template-python).
 
@@ -8,8 +8,8 @@ This project was generated with [cookiecutter](https://github.com/audreyr/cookie
 [![Windows Build Status](https://img.shields.io/appveyor/ci/jhhb/pydefipulsedata.svg?label=windows)](https://ci.appveyor.com/project/jhhb/pydefipulsedata)
 [![Coverage Status](https://img.shields.io/coveralls/jhhb/pydefipulsedata.svg)](https://coveralls.io/r/jhhb/pydefipulsedata)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/jhhb/pydefipulsedata.svg)](https://scrutinizer-ci.com/g/jhhb/pydefipulsedata)
-[![PyPI Version](https://img.shields.io/pypi/v/PyDefiPulseData.svg)](https://pypi.org/project/PyDefiPulseData)
-[![PyPI License](https://img.shields.io/pypi/l/PyDefiPulseData.svg)](https://pypi.org/project/PyDefiPulseData)
+[![PyPI Version](https://img.shields.io/pypi/v/pydefipulsedata.svg)](https://pypi.org/project/pydefipulsedata)
+[![PyPI License](https://img.shields.io/pypi/l/pydefipulsedata.svg)](https://pypi.org/project/pydefipulsedata)
 
 # Setup
 
@@ -22,13 +22,13 @@ This project was generated with [cookiecutter](https://github.com/audreyr/cookie
 Install it directly into an activated virtual environment:
 
 ```text
-$ pip install PyDefiPulseData
+$ pip install pydefipulsedata
 ```
 
 or add it to your [Poetry](https://poetry.eustace.io/) project:
 
 ```text
-$ poetry add PyDefiPulseData
+$ poetry add pydefipulsedata
 ```
 
 # Usage
