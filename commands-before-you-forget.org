@@ -1,0 +1,31 @@
+```
+# Runs the file
+python defipulsedata/core.py
+```
+
+```
+# install the module locally, recording the files into files.txt for easy deletion of the files created by the
+# module installation
+python setup.py install --record files.txt
+```
+
+```
+# this is like bundle or npx
+poetry run ...
+poetry install
+poetry lock
+```
+
+```
+# Searches sys.path for the named module and runs the corresponding .py file as a script.
+python -m foo
+```
+
+* References
+- https://stackoverflow.com/questions/1550226/python-setup-py-uninstall
+- https://stackoverflow.com/questions/1471994/what-is-setup-py
+- https://stackoverflow.com/questions/4042905/what-is-main-py
+- https://docs.python-guide.org/writing/structure/
+
+* Open questions
+- not sure if it matters if I use __init__.py or __main__.py in the main directory (and Makefile for that matter).
