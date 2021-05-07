@@ -15,7 +15,7 @@ watch: install .clean-test ## Continuously run all CI tasks when files chanage
 
 .PHONY: run ## Start the program
 run: install
-    poetry run python $(PACKAGE)/__init__.py
+	poetry run python $(PACKAGE)/__init__.py
 
 .PHONY: ipython ## Launch an IPython session
 ipython: install
