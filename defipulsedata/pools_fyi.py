@@ -3,9 +3,6 @@ from urllib import parse
 from .utils import get_request, validate_allowed_params
 
 
-# TODO: Test everything, and cleanup TODOs / doc issues. write tests. commit.
-
-
 class PoolsFyi:
     __API_URL_BASE = 'https://data-api.defipulse.com/api/v1/blocklytics/pools'
 
