@@ -4,7 +4,6 @@ import responses
 from defipulsedata import utils
 
 global EMPTY_DICT
-# TODO: JB - Check on the actual return type.
 EMPTY_DICT = {}
 
 
