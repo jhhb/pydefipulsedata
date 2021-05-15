@@ -1,6 +1,3 @@
-# TODO: Write the other method, and test by hand. Then commit. also add
-# the other fixture.
-
 import unittest
 
 import responses
