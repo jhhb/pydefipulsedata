@@ -13,26 +13,16 @@ class DexAg:
     def get_markets(self):
         # https://data-api.defipulse.com/api/v1/dexag/markets
         encoded_params = parse.urlencode(self.base_params)
-        api_url = '{0}/markets?{1}'.format(
-            self.api_base_url, encoded_params
-        )
+        api_url = '{0}/markets?{1}'.format(self.api_base_url, encoded_params)
         return get_request(api_url)
 
     def get_token_list_full(self):
         # https://data-api.defipulse.com/api/v1/dexag/token-list-full
         encoded_params = parse.urlencode(self.base_params)
-        api_url = '{0}/token-list-full?{1}'.format(
-            self.api_base_url, encoded_params
-        )
+        api_url = '{0}/token-list-full?{1}'.format(self.api_base_url, encoded_params)
         return get_request(api_url)
 
-    def get_price(
-            self,
-            *,
-            fromToken,
-            toToken,
-            dex='all',
-            params={}):
+    def get_price(self, *, fromToken, toToken, dex='all', params=None):
         # https://data-api.defipulse.com/api/v1/dexag/price?from=ETH&to=DAI&fromAmount=1&dex=ag
 
         required_params = {
@@ -40,11 +30,8 @@ class DexAg:
             'to': toToken,
             'dex': dex,
         }
-
-        merged_params = {
-            **params,
-            **required_params,
-            **self.base_params}
+        function_params = params or {}
+        merged_params = {**function_params, **required_params, **self.base_params}
 
         allowed_params = {
             'from',
@@ -53,21 +40,19 @@ class DexAg:
             'toAmount',
             'dex',
             'discluded',
-            'api-key'
+            'api-key',
         }
 
-        from_amount, to_amount = params.get(
-            'fromAmount'), params.get('toAmount')
+        from_amount, to_amount = merged_params.get('fromAmount'), merged_params.get(
+            'toAmount'
+        )
         if not (from_amount or to_amount):
-            raise ValueError(
-                "Either from_amount or to_amount must be specified.")
+            raise ValueError("Either from_amount or to_amount must be specified.")
         if from_amount and to_amount:
-            raise ValueError(
-                "Only one of from_amount or to_amount may be specified.")
+            raise ValueError("Only one of from_amount or to_amount may be specified.")
 
         validate_allowed_params(merged_params, allowed_params)
 
         encoded_params = parse.urlencode(merged_params)
-        api_url = '{0}/price?{1}'.format(
-            self.api_base_url, encoded_params)
+        api_url = '{0}/price?{1}'.format(self.api_base_url, encoded_params)
         return get_request(api_url)

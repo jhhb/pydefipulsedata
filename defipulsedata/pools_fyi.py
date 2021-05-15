@@ -10,7 +10,7 @@ class PoolsFyi:
         self.api_base_url = self.__API_URL_BASE
         self.base_params = {'api-key': api_key}
 
-    def get_exchanges(self, *, params={}):
+    def get_exchanges(self, *, params=None):
         # Example URL:
         # https://data-api.defipulse.com/api/v1/blocklytics/pools/v1/exchanges
         allowed_params = {
@@ -22,13 +22,13 @@ class PoolsFyi:
             'limit',
             'api-key',
         }
-        merged_params = {**params, **self.base_params}
+        function_params = params or {}
+        merged_params = {**function_params, **self.base_params}
 
         validate_allowed_params(merged_params, allowed_params)
 
         encoded_params = parse.urlencode(merged_params)
-        api_url = '{0}/v1/exchanges?{1}'.format(
-            self.api_base_url, encoded_params)
+        api_url = '{0}/v1/exchanges?{1}'.format(self.api_base_url, encoded_params)
         return get_request(api_url)
 
     def get_returns(self, *, address):
@@ -67,7 +67,7 @@ class PoolsFyi:
         )
         return get_request(api_url)
 
-    def get_trades(self, *, address, params={}):
+    def get_trades(self, *, address, params=None):
         allowed_params = {
             'platform',
             'direction',
@@ -78,7 +78,8 @@ class PoolsFyi:
             'from',
             'api-key',
         }
-        merged_params = {**params, **self.base_params}
+        function_params = params or {}
+        merged_params = {**function_params, **self.base_params}
 
         validate_allowed_params(merged_params, allowed_params)
 

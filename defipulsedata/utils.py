@@ -3,8 +3,8 @@ import json
 import requests
 
 
+# TODO: JB - Revisit this as we learn more about error handling.
 def get_request(url, **kwargs):
-    response, exception = None, None
     timeout = kwargs.get('timeout', 30)
 
     try:
@@ -12,14 +12,11 @@ def get_request(url, **kwargs):
         response.raise_for_status()
         content = json.loads(response.content.decode('utf-8'))
         return content
-    except Exception as e:
-        # TODO: Revisit this as we learn more about error handling.
-        try:
-            content = json.loads(response.content.decode('utf-8'))
-            raise ValueError(content)
-        except json.decoder.JSONDecodeError:
-            pass
+    except (json.decoder.JSONDecodeError, requests.HTTPError) as e:
         raise e
+    except Exception as e:
+        message = "Unexpected exception type: {type}".format(type=e.__class__.__name__)
+        raise Exception(message) from e
 
 
 def validate_allowed_params(actual_params, allowed_params):
