@@ -17,10 +17,6 @@ watch: install .clean-test ## Continuously run all CI tasks when files chanage
 run: install
 	poetry run python $(PACKAGE)/__init__.py
 
-.PHONY: ipython ## Launch an IPython session
-ipython: install
-	poetry run ipython --ipython-dir=notebooks
-
 # SYSTEM DEPENDENCIES #########################################################
 
 .PHONY: doctor
@@ -54,8 +50,8 @@ endif
 
 .PHONY: format
 format: install
-	poetry run isort $(PACKAGE) tests notebooks
-	poetry run black $(PACKAGE) tests notebooks
+	poetry run isort $(PACKAGE) tests
+	poetry run black $(PACKAGE) tests
 	@ echo
 
 .PHONY: check
@@ -63,7 +59,8 @@ check: install format  ## Run formaters, linters, and static analysis
 ifdef CI
 	git diff --exit-code
 endif
-	poetry run mypy $(PACKAGE) tests --config-file=.mypy.ini
+	# JB: TODO - For now, remove static analysis checks.
+	# poetry run mypy $(PACKAGE) tests --config-file=.mypy.ini
 	poetry run pylint $(PACKAGE) tests --rcfile=.pylint.ini
 	poetry run pydocstyle $(PACKAGE) tests
 
