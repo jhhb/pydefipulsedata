@@ -42,6 +42,8 @@ poetry run autopep8 --in-place --aggressive --aggressive defipulsedata/utils.py
 ** rek.to
 - This API actually does work, but there's a typo in the docs that needs fixing.
   - docs point to defiupulse instead of defipulse
+- for /events, it looks like minSize and symbol params do not work, however, we can go to app.rek.to and clearly see these query params working in a network request there.
+- for /top10, it looks like minSize and symbol params do not work
 ** dex_ag
 *** get_price
 
