@@ -1,0 +1,63 @@
+* Commands
+python -m poetry install
+python -m poetry lock
+
+```
+# Runs the file
+python defipulsedata/core.py
+```
+
+```
+# install the module locally, recording the files into files.txt for easy deletion of the files created by the
+# module installation
+python setup.py install --record files.txt
+```
+
+```
+# this is like bundle or npx
+poetry run ...
+poetry install
+poetry lock
+```
+
+```
+# Searches sys.path for the named module and runs the corresponding .py file as a script.
+python -m foo
+```
+
+```bash
+# auto-fix style violations like rubocop
+poetry run autopep8 --in-place --aggressive --aggressive defipulsedata/utils.py
+```
+
+* TODOS -
+
+** dex_ag
+*** get_price
+
+1. fromAmount and toAmount are exclusive options.
+2. Both of fromToken and toToken are required
+3. The API docs specify that "dex" is optional, but it is in fact required to work.
+4. Also, "discluded" works but seems unable to exclude some DEXes -- specifically, AG appears at the end of the response array, and cannot be excluded when tried with ?disclude=ag
+
+** all APIs
+
+1. None of the API endpoints require authentication if you just remove your api key query param. At least not consistently.
+
+* DONE
+
+** eth_gas_station
+# TODO: need to inject API key, need API key to be read from either config or environment (or both)
+# TODO: need to check if API key is the same across all services.
+# TODO: Allow configurable timeouts ?
+
+
+* Notes and Resources
+- https://stackoverflow.com/questions/129507/how-do-you-test-that-a-python-function-throws-an-exception
+- https://stackoverflow.com/questions/1550226/python-setup-py-uninstall
+- https://stackoverflow.com/questions/1471994/what-is-setup-py
+- https://stackoverflow.com/questions/4042905/what-is-main-py
+- https://docs.python-guide.org/writing/structure/
+
+* Open questions
+1. What's the difference between `__init__.py` and `__main__.py`?
