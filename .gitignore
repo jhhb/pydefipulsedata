@@ -45,3 +45,6 @@ Icon*
 
 # Eclipse
 .settings
+
+# project-specific
+defipulsedata/repl.py

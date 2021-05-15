@@ -1,4 +1,11 @@
 * Commands
+```
+make test
+make check
+# run pytest with stdout enabled in the non-test code
+poetry run pytest -s path/to/file.py
+```
+
 python -m poetry install
 python -m poetry lock
 
