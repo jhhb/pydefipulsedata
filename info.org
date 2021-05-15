@@ -39,6 +39,9 @@ poetry run autopep8 --in-place --aggressive --aggressive defipulsedata/utils.py
 
 * TODOS -
 
+** rek.to
+- This API actually does work, but there's a typo in the docs that needs fixing.
+  - docs point to defiupulse instead of defipulse
 ** dex_ag
 *** get_price
 
