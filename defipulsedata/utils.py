@@ -24,3 +24,7 @@ def validate_allowed_params(actual_params, allowed_params):
         if k not in allowed_params:
             message = "Received unexpected param: {0}".format(k)
             raise ValueError(message)
+
+
+def filter_null_keys(_dict):
+    return {k: v for k, v in _dict.items() if v is not None}
