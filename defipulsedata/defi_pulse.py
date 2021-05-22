@@ -1,3 +1,4 @@
+import warnings
 from urllib import parse
 
 from .utils import filter_null_keys, get_request, validate_allowed_params
@@ -25,6 +26,9 @@ class DefiPulse:
             'api-key',
         }
         function_params = params or {}
+
+        if 'period' in function_params and 'length' in function_params:
+            warnings.warn('API only supports "period" or "length" params exclusively.')
         merged_params = {**function_params, **self.base_params}
         validate_allowed_params(merged_params, allowed_params)
 
@@ -63,6 +67,9 @@ class DefiPulse:
             'api-key',
         }
         function_params = params or {}
+        if 'period' in function_params and 'length' in function_params:
+            warnings.warn('API only supports "period" or "length" params exclusively.')
+
         merged_params = {**function_params, **self.base_params}
         validate_allowed_params(merged_params, allowed_params)
 

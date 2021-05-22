@@ -44,7 +44,6 @@ class TestWrapper(unittest.TestCase):
 
     @responses.activate
     def test_get_history(self):
-        # TODO: JB - This should also test and implement usage of exclusive params
         client = DefiPulse(api_key='mock-key')
 
         url = 'https://data-api.defipulse.com/api/v1/defipulse/api/GetHistory?api-key=mock-key'
@@ -52,9 +51,28 @@ class TestWrapper(unittest.TestCase):
         client.get_history()
         self.assertEqual(responses.calls[0].request.url, url)
 
+        responses.reset()
+        url_with_invalid_param_combination = 'https://data-api.defipulse.com/api/v1/defipulse/api/GetHistory?period=period&length=length&api-key=mock-key'
+        responses.add(
+            responses.GET,
+            url_with_invalid_param_combination,
+            json=EMPTY_BLOB,
+            status=200,
+        )
+
+        client.get_history(params={'period': 'period', 'length': 'length'})
+
+        self.assertEqual(
+            responses.calls[0].request.url,
+            url_with_invalid_param_combination,
+        )
+
+        self.assertWarnsRegex(
+            UserWarning, 'API only supports "period" or "length" params exclusively.'
+        )
+
     @responses.activate
     def test_get_lending_history(self):
-        # TODO: JB - This should also test and implement usage of exclusive params
         client = DefiPulse(api_key='mock-key')
 
         url = 'https://data-api.defipulse.com/api/v1/defipulse/api/getLendingHistory?api-key=mock-key'
@@ -63,6 +81,26 @@ class TestWrapper(unittest.TestCase):
         self.assertEqual(
             responses.calls[0].request.url,
             url,
+        )
+
+        responses.reset()
+        url_with_invalid_param_combination = 'https://data-api.defipulse.com/api/v1/defipulse/api/getLendingHistory?period=period&length=length&api-key=mock-key'
+        responses.add(
+            responses.GET,
+            url_with_invalid_param_combination,
+            json=EMPTY_BLOB,
+            status=200,
+        )
+
+        client.get_lending_history(params={'period': 'period', 'length': 'length'})
+
+        self.assertEqual(
+            responses.calls[0].request.url,
+            url_with_invalid_param_combination,
+        )
+
+        self.assertWarnsRegex(
+            UserWarning, 'API only supports "period" or "length" params exclusively.'
         )
 
     @responses.activate
