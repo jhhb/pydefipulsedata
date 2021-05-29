@@ -11,15 +11,11 @@ class EthGasStation:
         self.base_params = {'api-key': api_key}
 
     def get_gas_price(self):
-        "Returns the current recommended fast, standard and safe low gas prices on the Ethereum network, along with the current block and wait times for each 'speed'."
-
         encoded_params = parse.urlencode(self.base_params)
         api_url = '{0}/ethgasAPI.json?{1}'.format(self.api_base_url, encoded_params)
         return get_request(api_url)
 
     def get_prediction_table(self):
-        "Returns estimated confirmation times for a range of gas prices from the EGS Prediction Page."
-
         encoded_params = parse.urlencode(self.base_params)
         api_url = '{0}/predictTable.json?{1}'.format(self.api_base_url, encoded_params)
         return get_request(api_url)

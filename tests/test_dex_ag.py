@@ -85,7 +85,7 @@ class GetPriceTestWrapper(unittest.TestCase):
         self.assertEqual(
             responses.calls[0].request.url,
             expected_url,
-            'specifying from and to in the params hash has no effect on the generated URL',
+            'specifying from and to in the params hash does not affect the URL',
         )
 
     def test_invalid_param_combinations(self):
