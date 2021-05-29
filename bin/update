@@ -12,7 +12,7 @@ CWD = os.getcwd()
 TMP = tempfile.gettempdir()
 CONFIG = {
     "full_name": "James Boyle",
-    "email": "message-me-on-git",
+    "email": "pydefipulsedata@protonmail.com",
     "github_username": "jhhb",
     "github_repo": "pydefipulsedata",
     "default_branch": "master",
