@@ -6,7 +6,7 @@ description = "Unofficial SDK for DeFi Pulse Data"
 
 license = "MIT"
 
-authors = ["James Boyle pydefipulsedata@protonmail.com"]
+authors = ["James Boyle <pydefipulsedata@protonmail.com>"]
 
 readme = "README.md"
 
