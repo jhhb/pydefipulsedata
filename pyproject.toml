@@ -1,7 +1,7 @@
 [tool.poetry]
 
 name = "defipulsedata"
-version = "0.0"
+version = "0.0.1"
 description = "Unofficial SDK for DeFi Pulse Data"
 
 license = "MIT"
@@ -15,15 +15,10 @@ documentation = "https://defipulsedata.readthedocs.io"
 repository = "https://github.com/jhhb/pydefipulsedata"
 
 keywords = [
-]
-classifiers = [
-    # TODO: update this list to match your application: https://pypi.org/pypi?%3Aaction=list_classifiers
-    "Development Status :: 1 - Planning",
-    "Natural Language :: English",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
+    "DeFi",
+    "Decentralized Finance",
+    "SDK",
+    "Client"
 ]
 
 [tool.poetry.dependencies]
