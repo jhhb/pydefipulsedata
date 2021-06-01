@@ -1,15 +1,22 @@
 # Overview
 
-Unofficial SDK for DeFi Pulse Data
+An unofficial Python SDK for the [DeFi Pulse Data](https://docs.defipulse.com/) project and
+each of its partner service providers. This project provides a lightweight Python
+client for each service provider.
 
-This project was generated with [cookiecutter](https://github.com/audreyr/cookiecutter) using [jacebrowning/template-python](https://github.com/jacebrowning/template-python).
+Currently, the DeFi Pulse Data service providers include:
+- [DeFi Pulse](https://defipulse.com/)
+- [ETH Gas Station](https://ethgasstation.info/)
+- [DEX.AG](https://dex.ag/)
+- [Rek.to](https://app.rek.to/)
+- [Pools.fyi](https://pools.fyi/#/)
 
-[![Unix Build Status](https://img.shields.io/travis/com/jhhb/pydefipulsedata.svg?label=unix)](https://travis-ci.com/jhhb/pydefipulsedata)
-[![Windows Build Status](https://img.shields.io/appveyor/ci/jhhb/pydefipulsedata.svg?label=windows)](https://ci.appveyor.com/project/jhhb/pydefipulsedata)
-[![Coverage Status](https://img.shields.io/coveralls/jhhb/pydefipulsedata.svg)](https://coveralls.io/r/jhhb/pydefipulsedata)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/jhhb/pydefipulsedata.svg)](https://scrutinizer-ci.com/g/jhhb/pydefipulsedata)
-[![PyPI Version](https://img.shields.io/pypi/v/defipulsedata.svg)](https://pypi.org/project/defipulsedata)
-[![PyPI License](https://img.shields.io/pypi/l/defipulsedata.svg)](https://pypi.org/project/defipulsedata)
+The goals of this package are to empower Python programmers to make use of DeFi Pulse Data services,
+to enrich the broader DeFi developer ecosystem, and to reduce overall developer effort by providing
+a packaged developer SDK so that developers do not need to reinvent the wheel for each project they make.
+
+This project bears no official relationship to the DeFi Pulse Data project, or the
+[Concourse Open Community](https://concourseopen.com/) project.
 
 # Setup
 
@@ -33,10 +40,43 @@ $ poetry add defipulsedata
 
 # Usage
 
-After installation, the package can imported:
+After installation, the package can imported.
 
-```text
-$ python
->>> import defipulsedata
->>> defipulsedata.__version__
+Each module below corresponds to a single, logical data provider service defined in
+the [DeFi Pulse Data documentation](https://docs.defipulse.com/).
+
+```python
+from defipulsedata import RekTo, EthGasStation, DefiPulse, DexAg, PoolsFyi
+
+key='REPLACE-WITH-YOUR-KEY'
+
+# Example requests for each client.
+
+# Rek.to
+rekto = RekTo(api_key=key)
+rekto.get_events()
+
+# DeFi Pulse
+dp = DefiPulse(api_key=key)
+dp.get_projects()
+
+# ETH Gas Station
+egs = EthGasStation(api_key=key)
+egs.get_gas_price()
+
+# DEX.AG
+dexag = DexAg(api_key=key)
+dexag.get_markets()
+
+# Pools.Fyi
+pools = PoolsFyi(api_key=key)
+pools.get_exchanges()
 ```
+
+# Contributing and Filing Issues
+
+Contributions are welcome and encouraged.
+
+If you have a bug or issue, please file a GitHub issue on the project describing the expected behavior and the actual behavior, with steps to reproduce the issue.
+
+If you have a feature request, please file a GitHub issue on the project describing the feature you want, and why you want it.
