@@ -5,6 +5,7 @@ each of its partner service providers. This project provides a lightweight Pytho
 client for each service provider.
 
 Currently, the DeFi Pulse Data service providers include:
+
 - [DeFi Pulse](https://defipulse.com/)
 - [ETH Gas Station](https://ethgasstation.info/)
 - [DEX.AG](https://dex.ag/)
@@ -75,7 +76,7 @@ pools.get_exchanges()
 
 # Contributing and Filing Issues
 
-Details for local development dependencies and useful Make targets can be found in [CONTRIBUTING.md](CONTRIBUTING.md)
+Details for local development dependencies and useful Make targets can be found in `contributing.md`
 
 Contributions, suggestions, bug reports, are welcome and encouraged.
 
