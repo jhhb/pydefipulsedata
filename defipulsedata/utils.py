@@ -5,7 +5,7 @@ import requests
 
 # TODO: JB - Revisit this as we learn more about error handling.
 def get_request(url, **kwargs):
-    timeout = kwargs.get('timeout', 30)
+    timeout = kwargs.get('timeout', 10)
 
     try:
         response = requests.get(url, timeout=timeout)
