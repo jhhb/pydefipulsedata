@@ -32,13 +32,7 @@ class PoolsFyi:
         return get_request(api_url)
 
     def get_returns(self, *, address):
-        # JB: TODO - Docs are a little confusing here and don't include the
-        # path param.
-        # This appears to return ~ 30 days of returns for the given contract address.
-        # It looks like inputting a contract address for GRT for example will
-        # NOT give you a result across AMMs, but for a particular pool on a
-        # particular platform over time
-        # Example URL:
+        # Example URL for UNI-V2 ETH/GRT:
         # https://data-api.defipulse.com/api/v1/blocklytics/pools/v1/returns/0x2e81ec0b8b4022fac83a21b2f2b4b8f5ed744d70
 
         encoded_params = parse.urlencode(self.base_params)
@@ -50,8 +44,6 @@ class PoolsFyi:
     def get_liquidity(self, *, address):
         # Returns the owners of liquidity on the AMM
         # Example URL: https://data-api.defipulse.com/api/v1/blocklytics/pools/v0/liquidity/0x2e81ec0b8b4022fac83a21b2f2b4b8f5ed744d70/owners
-        # The use of v0 is NOT a typo. This is what is currently used by the
-        # API.
 
         encoded_params = parse.urlencode(self.base_params)
         api_url = '{0}/v0/liquidity/{1}?{2}'.format(
@@ -60,7 +52,6 @@ class PoolsFyi:
         return get_request(api_url)
 
     def get_exchange(self, *, address):
-        # JB: TODO The docs for this endpoint point to the wrong base URL.
         # Example URL:
         # https://data-api.defipulse.com/api/v1/blocklytics/pools/v1/exchange/0x2e81ec0b8b4022fac83a21b2f2b4b8f5ed744d70
 

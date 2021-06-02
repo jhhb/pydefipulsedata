@@ -1,75 +1,43 @@
-* Commands
-```
-make test
-make check
-# run pytest with stdout enabled in the non-test code
-poetry run pytest -s path/to/file.py
-```
+## Summary
+This page documents any quirks in the APIs that are worth documenting and ideally
+fixing or clarifying in either the API docs, or the API implementations.
 
-python -m poetry install
-python -m poetry lock
+Any quirks that affect the runtime behavior and expectations could be
+good opportunities for adding in warning messages in the client.
 
-```
-# Runs the file
-python defipulsedata/core.py
-```
+## [ETH Gas Station](https://web.archive.org/web/20210602120344/https://docs.defipulse.com/api-docs-by-provider/egs)
 
-```
-# install the module locally, recording the files into files.txt for easy deletion of the files created by the
-# module installation
-python setup.py install --record files.txt
-```
+## [Rek.to](https://web.archive.org/web/20210602120354/https://docs.defipulse.com/api-docs-by-provider/rek.to)
 
-```
-# this is like bundle or npx
-poetry run ...
-poetry install
-poetry lock
-```
+- [`/events`](https://web.archive.org/web/20210602120843/https://docs.defipulse.com/api-docs-by-provider/rek.to/events)
+    - It looks like `minSize` and `symbol` params do not work, however, we can go to app.rek.to and clearly see these query params working in a network request there.
+    
+- [`/top10`](https://web.archive.org/web/20210602120845/https://docs.defipulse.com/api-docs-by-provider/rek.to/untitled)
+    - It looks like `minSize` and `symbol` params do not work.
 
-```
-# Searches sys.path for the named module and runs the corresponding .py file as a script.
-python -m foo
-```
+- [docs](https://web.archive.org/web/20210602120843/https://docs.defipulse.com/api-docs-by-provider/rek.to/events)
+    - docs point to `defiupulse` instead of `defipulse`.
 
-```bash
-# auto-fix style violations like rubocop
-poetry run autopep8 --in-place --aggressive --aggressive defipulsedata/utils.py
-```
+## [Pools.fyi](https://web.archive.org/web/20210602120320/https://docs.defipulse.com/api-docs-by-provider/pools.fyi)
 
-* TODOS -
+- [`/returns`](https://web.archive.org/web/20210602121958/https://docs.defipulse.com/api-docs-by-provider/pools.fyi/returns-by-exchange)
+    - This endpoint returns ~30 days of returns data for a particular *liquidity pool* address over time,
+      for example, UNI-V2 ETH/GRT.
+        - The endpoint will *not* return data across AMMs for an individual token address, like GRT or ETH.
+    - The docs' "Request" section could be updated to include `address` as a path param.
 
-** rek.to
-- This API actually does work, but there's a typo in the docs that needs fixing.
-  - docs point to defiupulse instead of defipulse
-- for /events, it looks like minSize and symbol params do not work, however, we can go to app.rek.to and clearly see these query params working in a network request there.
-- for /top10, it looks like minSize and symbol params do not work
-** dex_ag
-*** get_price
+- [`/liquidity`](https://web.archive.org/web/20210602124621/https://docs.defipulse.com/api-docs-by-provider/pools.fyi/pool-liquidity)
+    - The use of `v0` in the URL is not a typo, even though this is the only Pools.fyi endpoint that uses this `v0` path.
 
-1. fromAmount and toAmount are exclusive options.
-2. Both of fromToken and toToken are required
-3. The API docs specify that "dex" is optional, but it is in fact required to work.
-4. Also, "discluded" works but seems unable to exclude some DEXes -- specifically, AG appears at the end of the response array, and cannot be excluded when tried with ?disclude=ag
+- [`/exchange`](https://web.archive.org/web/20210602124630/https://docs.defipulse.com/api-docs-by-provider/pools.fyi/single-exchange)
+    - The docs currently point to an invalid base URL; the same base URL as the other endpoints is the true one.
 
-** all APIs
+## [DeFi Pulse](https://web.archive.org/web/20210602120334/https://docs.defipulse.com/api-docs-by-provider/defi-pulse-data)
 
-1. None of the API endpoints require authentication if you just remove your api key query param. At least not consistently.
+## [DEX.AG](https://web.archive.org/web/20210602120338/https://docs.defipulse.com/api-docs-by-provider/dex.ag)
 
-* DONE
-
-** eth_gas_station
-# TODO: need to inject API key, need API key to be read from either config or environment (or both)
-# TODO: need to check if API key is the same across all services.
-# TODO: Allow configurable timeouts ?
-
-
-* Notes and Resources
-- https://stackoverflow.com/questions/129507/how-do-you-test-that-a-python-function-throws-an-exception
-- https://stackoverflow.com/questions/1550226/python-setup-py-uninstall
-- https://stackoverflow.com/questions/1471994/what-is-setup-py
-- https://stackoverflow.com/questions/4042905/what-is-main-py
-- https://docs.python-guide.org/writing/structure/
-
-* Open questions
-1. What's the difference between `__init__.py` and `__main__.py`?
+- [`/price`](https://web.archive.org/web/20210602120306/https://docs.defipulse.com/api-docs-by-provider/dex.ag/untitled)
+    - `fromAmount` and `toAmount` are exclusive options.
+    - Both of `fromToken` and `toToken` are required.
+    - The API docs specify that `dex` is optional, but it appears to be required in order to work.
+    - `discluded` works but seems unable to exclude some DEXes -- specifically, AG appears at the end of the response array, and cannot be excluded when tried with `?disclude=ag`.

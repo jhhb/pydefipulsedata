@@ -59,7 +59,7 @@ check: install format  ## Run formaters, linters, and static analysis
 ifdef CI
 	git diff --exit-code
 endif
-	# JB: TODO - For now, remove static analysis checks.
+	# TODO: JB - For now, remove static analysis checks.
 	# poetry run mypy $(PACKAGE) tests --config-file=.mypy.ini
 	poetry run pylint $(PACKAGE) tests --rcfile=.pylint.ini
 	poetry run pydocstyle $(PACKAGE) tests
@@ -124,6 +124,7 @@ $(MKDOCS_INDEX): docs/requirements.txt mkdocs.yml docs/*.md
 	@ cd docs/about && ln -sf ../../CHANGELOG.md changelog.md
 	@ cd docs/about && ln -sf ../../CONTRIBUTING.md contributing.md
 	@ cd docs/about && ln -sf ../../LICENSE license.md
+	@ cd docs/about && ln -sf ../../ENDPOINTS.md endpoints.md
 	poetry run mkdocs build --clean --strict
 
 docs/requirements.txt: poetry.lock
