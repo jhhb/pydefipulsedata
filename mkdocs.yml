@@ -1,0 +1,19 @@
+site_name: defipulsedata
+site_description: Unofficial SDK for DeFi Pulse Data
+site_author: James Boyle
+
+repo_url: https://github.com/jhhb/pydefipulsedata
+edit_uri: https://github.com/jhhb/pydefipulsedata/edit/master/docs
+
+theme: readthedocs
+
+markdown_extensions:
+  - codehilite
+
+nav:
+  - Home: index.md
+  - About:
+    - Release Notes: about/changelog.md
+    - Contributing: about/contributing.md
+    - License: about/license.md
+    - Endpoints: about/endpoints.md
