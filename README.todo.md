@@ -8,5 +8,5 @@ This project was generated with [cookiecutter](https://github.com/audreyr/cookie
 [![Windows Build Status](https://img.shields.io/appveyor/ci/jhhb/pydefipulsedata.svg?label=windows)](https://ci.appveyor.com/project/jhhb/pydefipulsedata)
 [![Coverage Status](https://img.shields.io/coveralls/jhhb/pydefipulsedata.svg)](https://coveralls.io/r/jhhb/pydefipulsedata)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/jhhb/pydefipulsedata.svg)](https://scrutinizer-ci.com/g/jhhb/pydefipulsedata)
-[![PyPI Version](https://img.shields.io/pypi/v/defipulsedata.svg)](https://pypi.org/project/defipulsedata)
-[![PyPI License](https://img.shields.io/pypi/l/defipulsedata.svg)](https://pypi.org/project/defipulsedata)
+
+https://img.shields.io/readthedocs/defipulsedata.svg?logo=read-the-docs
