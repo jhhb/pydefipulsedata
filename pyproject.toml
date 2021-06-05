@@ -1,7 +1,7 @@
 [tool.poetry]
 
 name = "defipulsedata"
-version = "0.0.0-pre"
+version = "0.0.0"
 description = "Unofficial SDK for DeFi Pulse Data"
 
 license = "MIT"
