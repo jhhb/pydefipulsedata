@@ -13,7 +13,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - About:
-    - Release Notes: docs/about/changelog.md
-    - Contributing: docs/about/contributing.md
-    - License: docs/about/license.md
-    - Endpoints: docs/about/endpoints.md
+    - Release Notes: about/changelog.md
+    - Contributing: about/contributing.md
+    - License: about/license.md
+    - Endpoints: about/endpoints.md
