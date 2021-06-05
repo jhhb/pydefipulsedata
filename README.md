@@ -79,7 +79,7 @@ pools.get_exchanges()
 
 # Contributing and Filing Issues
 
-Details for local development dependencies and useful Make targets can be found in `contributing.md`
+Details for local development dependencies and useful Make targets can be found in [here](https://defipulsedata.readthedocs.io/en/latest/about/contributing/)
 
 Contributions, suggestions, bug reports, are welcome and encouraged.
 
