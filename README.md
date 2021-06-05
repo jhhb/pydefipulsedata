@@ -1,4 +1,7 @@
 # Overview
+[![PyPI Version](https://img.shields.io/pypi/v/defipulsedata.svg)](https://pypi.org/project/defipulsedata)
+[![PyPI License](https://img.shields.io/pypi/l/defipulsedata.svg)](https://pypi.org/project/defipulsedata)
+[![Documentation](https://img.shields.io/readthedocs/defipulsedata.svg?logo=read-the-docs)](https://defipulsedata.readthedocs.io/en/latest/)
 
 An unofficial Python SDK for the [DeFi Pulse Data](https://docs.defipulse.com/) project and
 each of its partner service providers. This project provides a lightweight Python
@@ -76,7 +79,7 @@ pools.get_exchanges()
 
 # Contributing and Filing Issues
 
-Details for local development dependencies and useful Make targets can be found in `contributing.md`
+Details for local development dependencies and useful Make targets can be found in [here](https://defipulsedata.readthedocs.io/en/latest/about/contributing/)
 
 Contributions, suggestions, bug reports, are welcome and encouraged.
 
