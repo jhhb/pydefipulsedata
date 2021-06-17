@@ -46,13 +46,13 @@ class TestWrapper(unittest.TestCase):
     def test_get_history(self):
         client = DefiPulse(api_key='mock-key')
 
-        url = 'https://data-api.defipulse.com/api/v1/defipulse/api/GetHistory?api-key=mock-key'
+        url = 'https://data-api.defipulse.com/api/v1/defipulse/api/GetHistory?project=all&api-key=mock-key'
         responses.add(responses.GET, url, json=EMPTY_BLOB, status=200)
         client.get_history()
         self.assertEqual(responses.calls[0].request.url, url)
 
         responses.reset()
-        url_with_invalid_param_combination = 'https://data-api.defipulse.com/api/v1/defipulse/api/GetHistory?period=period&length=length&api-key=mock-key'
+        url_with_invalid_param_combination = 'https://data-api.defipulse.com/api/v1/defipulse/api/GetHistory?project=all&period=period&length=length&api-key=mock-key'
         responses.add(
             responses.GET,
             url_with_invalid_param_combination,
@@ -69,6 +69,23 @@ class TestWrapper(unittest.TestCase):
 
         self.assertWarnsRegex(
             UserWarning, 'API only supports "period" or "length" params exclusively.'
+        )
+
+        responses.reset()
+        url_with_project_overrides = 'https://data-api.defipulse.com/api/v1/defipulse/api/GetHistory?project=override_project&api-key=mock-key'
+        responses.add(
+            responses.GET,
+            url_with_project_overrides,
+            json=EMPTY_BLOB,
+            status=200,
+        )
+
+        client.get_history(params={'project': 'override_project'})
+
+        self.assertEqual(
+            responses.calls[0].request.url,
+            url_with_project_overrides,
+            'params provided with a "project" key can override the default.',
         )
 
     @responses.activate

@@ -29,7 +29,9 @@ class DefiPulse:
 
         if 'period' in function_params and 'length' in function_params:
             warnings.warn('API only supports "period" or "length" params exclusively.')
-        merged_params = {**function_params, **self.base_params}
+
+        default_params = {'project': 'all'}
+        merged_params = {**default_params, **function_params, **self.base_params}
         validate_allowed_params(merged_params, allowed_params)
 
         encoded_params = parse.urlencode(merged_params)
